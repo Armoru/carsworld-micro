@@ -6,14 +6,18 @@ services:
     image: postgres:10.1
     volumes:
       - postgresql-volume:/var/lib/postgresql/data
+
   djangoapp:
     build: ./djangoapp
+    depends_on:
+      - db
     ports:
       - "5000:5000"
     volumes:
       - ./djangoapp:/djangoapp
       - ./djangoapp/djangodrf/static:/static
       - ./djangoapp/djangodrf/media:/media
+    command: ./entrypoint.sh
 
   flaskapp:
     build: ./flaskapp

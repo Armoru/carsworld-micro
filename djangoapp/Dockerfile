@@ -13,4 +13,5 @@ RUN pip3 install -r requirements.txt
 COPY . /djangoapp
 WORKDIR /djangoapp
 
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:5000"]
+RUN chmod +x /djangoapp/entrypoint.sh
+ENTRYPOINT ["sh", "/djangoapp/entrypoint.sh"]
