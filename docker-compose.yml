@@ -2,6 +2,10 @@ version: "3"
 
 services:
 
+  db:
+    image: postgres:10.1
+    volumes:
+      - postgresql-volume:/var/lib/postgresql/data
   djangoapp:
     build: ./djangoapp
     ports:
@@ -10,8 +14,6 @@ services:
       - ./djangoapp:/djangoapp
       - ./djangoapp/djangodrf/static:/static
       - ./djangoapp/djangodrf/media:/media
-    environment:
-      - ALLOWED_HOSTS_PUSH=djangoapp
 
   flaskapp:
     build: ./flaskapp
@@ -21,6 +23,6 @@ services:
       - "4000:4000"
     environment:
       - FLASK_ENV=development
-    restart: always
 
-
+volumes:
+  postgresql-volume: # local to Linux, but in Windows it is not accessible
