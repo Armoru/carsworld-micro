@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+
+  djangoapp:
+    build: ./djangoapp
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./djangoapp:/djangoapp
+      - ./djangoapp/djangodrf/static:/static
+      - ./djangoapp/djangodrf/media:/media
+    environment:
+      - ALLOWED_HOSTS_PUSH=djangoapp
+
+  flaskapp:
+    build: ./flaskapp
+    volumes:
+      - .:/code
+    ports:
+      - "4000:4000"
+    environment:
+      - FLASK_ENV=development
+    restart: always
+
+

@@ -1,0 +1,16 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y \
+    python3-pip python3-setuptools python3-dev && rm -rf /var/lib/apt/lists/*
+
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
+RUN mkdir /djangoapp
+COPY requirements.txt /djangoapp
+WORKDIR /djangoapp
+RUN pip3 install -r requirements.txt
+
+COPY . /djangoapp
+WORKDIR /djangoapp
+
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:5000"]
