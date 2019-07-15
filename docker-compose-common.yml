@@ -15,8 +15,8 @@ services:
       - "5000:5000"
     volumes:
       - ./djangoapp:/djangoapp
-      - ./djangoapp/djangodrf/static:/static
-      - ./djangoapp/djangodrf/media:/media
+      - ./djangoapp/static:/static
+      - ./djangoapp/media:/media
     command: ./entrypoint.sh
     environment:
       - ALLOWED_HOSTS_PUSH=djangoapp
