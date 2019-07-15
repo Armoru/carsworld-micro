@@ -18,15 +18,19 @@ services:
       - ./djangoapp/djangodrf/static:/static
       - ./djangoapp/djangodrf/media:/media
     command: ./entrypoint.sh
+    environment:
+      - ALLOWED_HOSTS_PUSH=djangoapp
 
   flaskapp:
     build: ./flaskapp
     volumes:
-      - .:/code
+      - ./flaskapp:/flaskapp
     ports:
       - "4000:4000"
     environment:
       - FLASK_ENV=development
+      - DRF_HOST=djangoapp
+      - DRF_PORT=5000
 
 volumes:
   postgresql-volume: # local to Linux, but in Windows it is not accessible
