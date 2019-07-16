@@ -16,3 +16,11 @@ Menggabungkan Flask dan Django, all the way sampai caching
 ## Next Course
 - ReactJS-ied
 - Beautify with MaterialUI.com 
+
+## Reading List
+
+- Nginx Reverse Proxy: https://www.freecodecamp.org/news/docker-nginx-letsencrypt-easy-secure-reverse-proxy-40165ba3aee2/
+- Nginx Reverse Proxy 2: https://www.thepolyglotdeveloper.com/2017/03/nginx-reverse-proxy-containerized-docker-applications/
+- Microservices in Python: https://blog.apcelent.com/setup-microservices-architecture-in-python-with-zeromq-docker.html
+- Kubernetes: https://dev.to/apcelent/scaling-python-microservices-with-kubernetes-b9m
+- Vagrant: https://www.mattlayman.com/blog/2019/web-development-environments/
