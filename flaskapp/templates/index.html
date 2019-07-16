@@ -48,7 +48,7 @@
       {% for item in news_list %}
       <h1>{{ item['title'] }}</h1>
       <p>{{ item['created_at']  }}</p>
-      <img class="card-img-top" src="{{ item['image'] }}" alt="Card image cap">
+      <img class="card-img-top" src="{{config.MEDIA_URL}}{{ item['image'] }}" alt="Card image cap">
       <p>{{ item['content'] }}</p>
       <hr>
       {% endfor %}

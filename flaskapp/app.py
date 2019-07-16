@@ -4,10 +4,16 @@ from flask import Flask, render_template
 from flask_script import Manager
 
 app = Flask(__name__)
+
+if os.getenv('FLASK_ENV', 'development') == 'development':
+    app.config.from_object("config.DevelopmentConfig")
+else:
+    app.config.from_object("config.ProductionConfig")
+
 manager = Manager(app)
 
-DRF_HOST = os.getenv('DRF_HOST', 'localhost')
-DRF_PORT = os.getenv('DRF_PORT', 5000)
+DRF_HOST = app.config['DRF_HOST']
+DRF_PORT = app.config['DRF_PORT']
 
 ROOT_DRF = f"http://{DRF_HOST}:{DRF_PORT}"
 

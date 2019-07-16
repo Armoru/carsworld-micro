@@ -3,4 +3,8 @@ version: "3"
 services:
   djangoapp:
     environment:
-      - HOSTNAME=localhost
+      - DJANGO_ENV=development
+
+  flaskapp:
+    environment:
+      - FLASK_ENV=development
