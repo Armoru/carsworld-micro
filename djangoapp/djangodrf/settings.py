@@ -26,7 +26,7 @@ SECRET_KEY = "i)cn9j9#5m^05^gk-j@5_-wju98t+%4$u^todss#uanh$vog2+"
 DEBUG = True
 
 DJANGO_HOST = os.getenv('HOSTNAME')
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '192.168.100.3', '10.0.75.1']
 allowed_host_append = os.getenv("ALLOWED_HOSTS_PUSH")
 if allowed_host_append:
     ALLOWED_HOSTS.append(allowed_host_append)
@@ -35,6 +35,7 @@ if allowed_host_append:
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders",
     "blog",
     "rest_framework",
     "rest_framework_swagger",
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -131,3 +133,5 @@ STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+CORS_ORIGIN_ALLOW_ALL = True

@@ -24,3 +24,10 @@ Menggabungkan Flask dan Django, all the way sampai caching
 - Microservices in Python: https://blog.apcelent.com/setup-microservices-architecture-in-python-with-zeromq-docker.html
 - Kubernetes: https://dev.to/apcelent/scaling-python-microservices-with-kubernetes-b9m
 - Vagrant: https://www.mattlayman.com/blog/2019/web-development-environments/
+
+## TIPS
+- Create superuser
+
+`python manage.py syncdb --noinput`
+`echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'pass')" | python manage.py shell`
+`python manage.py runserver`
